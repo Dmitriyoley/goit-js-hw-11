@@ -44,7 +44,7 @@ img {
 }
 
 .input__btn:hover {
-    background-color: greenyellow;
+    background-color:rgb(29, 188, 188);
 }
 
 .photo-card {
@@ -67,7 +67,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1F78CC;
+    background-color: rgb(29, 188, 188);
     height: 25px;
     border-radius: 3px;
 }

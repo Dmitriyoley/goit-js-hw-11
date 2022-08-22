@@ -51,6 +51,7 @@ const markup = data => {
 
 async function onSubmit (evt) {
   evt.preventDefault();
+  page = 1;
   refs.gallery.innerHTML = '';
   try {
     const data = await fetchImg(refs.input.value, page);
@@ -69,23 +70,16 @@ async function onSubmit (evt) {
   }
 };
 
-async function getPage(page) {
-  try {
-    const data = await fetchImg(refs.input.value, page + 1);
-    if (!data.hits.length) {
-      refs.loadBtn.classList.add('is-hidden');
-    }
-    return;
-  } catch (error) {
-    console.log(error);
-  }
-}
+
+
 async function loadMore() {
   try {
     page += 1;
     const data = await fetchImg(refs.input.value, page);
+    if (!data.hits.length) {
+      refs.loadBtn.classList.add('is-hidden');
+    }
     markup(data);
-    getPage(page);
   } catch (error) {
     console.log(error);
   }
